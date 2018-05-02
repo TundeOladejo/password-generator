@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <title>Random Password Generator</title>
+    
+    <link rel="stylesheet" href="css/passGen.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    
+</head>
+<body>
+    
+    <div class="container">
+          
+          <div class="col-xs-12">
+            <form action="" name="passGen">
+               <div class="col-xs-12">
+                <input type="text" size="18" name="output" class="out" disabled>
+                <input type="button" value="Generate Password" onclick="populateform(this.form.length.value)" class="btn btn-success myBtn"> 
+               <div class="col-xs-10"><strong>Password Length:</strong></div>
+               <div class="col-xs-2">
+                <input type="text" name="length" size="3" value="6"> 
+               </div>
+               </div>   
+            </form>
+          </div>  
+    </div>
+    
+    <script type="text/javascript">
+        
+        var keylist = "abcdefghijklmnopqrstuvwxyz1234567890"
+        var tmp = ''
+        
+        function generatepass(plength){
+            tmp=''
+            for(i=0;i<plength;i++){
+                tmp+=keylist.charAt(Math.floor(Math.random()*keylist.length))
+            }
+            return tmp
+        }
+        
+        function populateform(enterlength){
+            document.passGen.output.value = generatepass(enterlength)
+        }
+        
+    </script>
+    
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootsrap.min.js"></script>
+</body>
+</html>
